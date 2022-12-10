@@ -2,6 +2,7 @@ package com.example.nasaimage.data.Repository
 
 import com.example.nasaimage.data.Network.ApodApi
 import com.example.nasaimage.data.model.ApodData
+import com.example.nasaimage.data.model.ApodResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.Flow
@@ -14,5 +15,15 @@ class ApodRepository(private var apodApi: ApodApi = ApodApi.instance) {
 
     companion object {
         val instances by lazy { ApodRepository() }
+    }
+}
+
+class PictureRepository(private var apodApi: ApodApi = ApodApi.instance) {
+    fun fetchPicture(): Flow<ApodResponse> = flow {
+        emit(apodApi.getPicutres())
+    }.flowOn(Dispatchers.IO)
+
+    companion object {
+        val instancesPic by lazy { PictureRepository() }
     }
 }

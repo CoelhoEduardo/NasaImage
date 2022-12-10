@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">NasaImage</string>
+    <string name="app_name">Nasa Image</string>
     <string name="imagenasa">imageNasa</string>
+    <string name="menu">Menu</string>
+    <string name="favorites">Favorites</string>
+    <string name="pictures_list">Pictures List</string>
+    <string name="today_picture">Today Picture</string>
+    <string name="back_arrow">back arrow</string>
+    <string name="picture_list">Picture List</string>
 </resources>

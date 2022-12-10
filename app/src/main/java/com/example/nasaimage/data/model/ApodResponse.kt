@@ -1,5 +1,7 @@
 package com.example.nasaimage.data.model
 
+
+data class ApodResponse(val apod: List<ApodData>)
 data class ApodData(
     val copyright: String,
     val date: String,

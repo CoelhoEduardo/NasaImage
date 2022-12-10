@@ -1,20 +1,18 @@
-package com.example.nasaimage
+package com.example.nasaimage.UI
 
-import android.annotation.SuppressLint
-import android.os.Build
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
+import com.example.nasaimage.R
 import com.example.nasaimage.ViewModel.ApodViewModel
 import com.example.nasaimage.utils.load
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,11 +29,16 @@ class MainActivity : AppCompatActivity() {
         get() = findViewById(R.id.title)
     private val copyright: TextView
         get() = findViewById(R.id.copyright)
+    private val backArrow: ImageButton
+        get() = findViewById(R.id.back_home)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        backArrow.setOnClickListener {
+            startActivity(Intent(this, Home::class.java))
+        }
 
         apodViewModel.loadApod()
 
